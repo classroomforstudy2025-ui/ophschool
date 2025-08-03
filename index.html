@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Category Browser</title>
+    <!-- Tailwind CSS CDN for styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom font import for a cleaner look */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+        body {
+            font- family:Times New Roman;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 antialiased flex items-center justify-center min-h-screen">
+
+    <!-- Main container for the app, responsive for both mobile and PC -->
+    <!-- It will be wider on medium screens (e.g., tablets) and even wider on large screens (e.g., desktops) -->
+    <div class="max-w-md md:max-w-3xl lg:max-w-4xl mx-auto w-full bg-white rounded-3xl shadow-xl overflow-hidden">
+
+        <!-- Top Header Bar, responsive -->
+        <header class="flex items-center justify-between p-4 md:p-6 bg-white border-b-2 border-gray-100 sticky top-0 z-10">
+            <!-- Back Arrow Icon (SVG) -->
+            <a href="#" class="p-2 -ml-2 md:p-3 md:-ml-3 rounded-full text-blue-500 hover:bg-gray-100 transition-colors duration-200">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M19 12H5M12 19l-7-7 7-7"/>
+                </svg>
+            </a>
+            <!-- Header Title -->
+            <h1 class="text-xl md:text-2xl font-semibold text-gray-800">Oudonxay Public Health School</h1>
+            <!-- Search Icon (SVG) - Now a button to toggle the search bar -->
+            <button id="search-icon-btn" class="p-2 -mr-2 md:p-3 md:-mr-3 rounded-full text-blue-500 hover:bg-gray-100 transition-colors duration-200">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="11" cy="11" r="8"/>
+                    <path d="m21 21-4.3-4.3"/>
+                </svg>
+            </button>
+        </header>
+
+        <!-- Search Bar - Initially hidden -->
+        <div id="search-bar" class="hidden p-4 md:p-6 bg-white border-b-2 border-gray-100">
+            <input type="text" id="search-input" placeholder="Search categories..." class="w-full p-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-colors duration-200">
+        </div>
+
+        <!-- Main Content Area with Categories Grid -->
+        <main class="p-6 md:p-8">
+            <!-- The grid will show 2 columns on mobile, 3 on tablet/medium screens, and 4 on desktop/large screens -->
+            <div id="categories-grid" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
+
+                <!-- Category Card 1: Restaurants -->
+                <a href="https://fileupload.infy.uk/?i=1#/" class="category-card flex flex-col items-center justify-center p-6 md:p-8 bg-white rounded-2xl shadow-md transition-all duration-300 hover:shadow-xl hover:scale-105 transform">
+                    <!-- Icon SVG -->
+                    <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z"/>
+                        <path d="M5 21h14"/>
+                        <path d="M4 17h16"/>
+                        <path d="M12 2a9 9 0 0 1 9 9v1a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-1a9 9 0 0 1 9-9z"/>
+                    </svg>
+                    <span class="mt-4 text-base font-semibold text-gray-700">File Manager</span>
+                </a>
+
+                <!-- Category Card 2: Hotels -->
+                <a href="https://script.google.com/macros/s/AKfycbwQskMSCtwjKA7ksVm0JWmsDtiw6QczpKcL6RV6nAiMd62zbz0KuRjPzbvoEiu6YPxykQ/exec" class="category-card flex flex-col items-center justify-center p-6 md:p-8 bg-white rounded-2xl shadow-md transition-all duration-300 hover:shadow-xl hover:scale-105 transform">
+                    <!-- Icon SVG -->
+                    <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M2 13h10v8H2zM14 13h8v8h-8z"/>
+                        <path d="M18 10h-2V5h-2v5h-2V5h-2v5h-2V5h-2v5H6V5H4v5H2"/>
+                        <path d="M22 10h-2V5h-2v5h-2V5h-2v5h-2V5h-2v5h-2V5H2"/>
+                    </svg>
+                    <span class="mt-4 text-base font-semibold text-gray-700">Point Student</span>
+                </a>
+
+                <!-- Category Card 3: Nightlife -->
+                <a href="#" class="category-card flex flex-col items-center justify-center p-6 md:p-8 bg-white rounded-2xl shadow-md transition-all duration-300 hover:shadow-xl hover:scale-105 transform">
+                    <!-- Icon SVG -->
+                    <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M3 15h18"/>
+                        <path d="M16 11l5-5h-4L12 9 7 5H3l5 5"/>
+                        <path d="M12 15L7 9"/>
+                        <path d="M12 15l5-6"/>
+                        <path d="M12 15v6"/>
+                    </svg>
+                    <span class="mt-4 text-base font-semibold text-gray-700">Statis Student</span>
+                </a>
+
+                <!-- Category Card 4: Shopping -->
+                <a href="#" class="category-card flex flex-col items-center justify-center p-6 md:p-8 bg-white rounded-2xl shadow-md transition-all duration-300 hover:shadow-xl hover:scale-105 transform">
+                    <!-- Icon SVG -->
+                    <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/>
+                        <line x1="3" y1="6" x2="21" y2="6"/>
+                        <path d="M16 10a4 4 0 0 1-8 0"/>
+                    </svg>
+                    <span class="mt-4 text-base font-semibold text-gray-700">Shopping</span>
+                </a>
+
+                <!-- Category Card 5: Culture -->
+                <a href="#" class="category-card flex flex-col items-center justify-center p-6 md:p-8 bg-white rounded-2xl shadow-md transition-all duration-300 hover:shadow-xl hover:scale-105 transform">
+                    <!-- Icon SVG -->
+                    <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"/>
+                    </svg>
+                    <span class="mt-4 text-base font-semibold text-gray-700">Culture</span>
+                </a>
+
+                <!-- Category Card 6: Popular -->
+                <a href="#" class="category-card flex flex-col items-center justify-center p-6 md:p-8 bg-white rounded-2xl shadow-md transition-all duration-300 hover:shadow-xl hover:scale-105 transform">
+                    <!-- Icon SVG -->
+                    <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                    </svg>
+                    <span class="mt-4 text-base font-semibold text-gray-700">Popular</span>
+                </a>
+                
+            </div>
+        </main>
+    </div>
+
+    <!-- JavaScript for search functionality -->
+    <script>
+        // Get references to all necessary DOM elements
+        const searchIconBtn = document.getElementById('search-icon-btn');
+        const searchBar = document.getElementById('search-bar');
+        const searchInput = document.getElementById('search-input');
+        const categoryCards = document.querySelectorAll('.category-card');
+
+        // Function to toggle the visibility of the search bar
+        function toggleSearchBar() {
+            // Check if the search bar is currently hidden
+            if (searchBar.classList.contains('hidden')) {
+                // If it is, show it by removing the 'hidden' class
+                searchBar.classList.remove('hidden');
+                // Give the search input focus for immediate typing
+                searchInput.focus();
+            } else {
+                // If it is visible, hide it and clear the input field
+                searchBar.classList.add('hidden');
+                searchInput.value = '';
+                // Restore all category cards in case they were filtered
+                filterCategories('');
+            }
+        }
+
+        // Function to filter the category cards based on the search query
+        function filterCategories(query) {
+            const normalizedQuery = query.trim().toLowerCase();
+
+            categoryCards.forEach(card => {
+                const categoryName = card.querySelector('span').textContent.toLowerCase();
+
+                // Check if the category name includes the search query
+                if (categoryName.includes(normalizedQuery)) {
+                    // If it matches, make sure the card is visible
+                    card.style.display = 'flex';
+                } else {
+                    // If it doesn't match, hide the card
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // Add event listeners
+        searchIconBtn.addEventListener('click', toggleSearchBar);
+        searchInput.addEventListener('input', (event) => {
+            filterCategories(event.target.value);
+        });
+
+    </script>
+
+</body>
+</html>
